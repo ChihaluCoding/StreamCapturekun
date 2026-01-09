@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>配信録画くん - ホーム</title>
+    <title>配信録画くん</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="bg-decoration">
+        <div class="shape shape-circle" style="top: 10%; left: 5%; width: 50px; height: 50px; background: #facc15;"></div>
+        <div class="shape shape-circle" style="top: 60%; right: 10%; width: 80px; height: 80px; background: #f472b6; animation-delay: 1s;"></div>
+        <div class="shape shape-square" style="top: 20%; right: 15%; width: 40px; height: 40px; background: #60a5fa; animation-delay: 2s;"></div>
+        <div class="shape shape-square" style="bottom: 10%; left: 10%; width: 60px; height: 60px; background: #a78bfa; animation-delay: 3s;"></div>
+        <div class="shape shape-triangle" style="top: 40%; left: -20px; animation-delay: 1.5s;"></div>
+        <div class="shape shape-triangle" style="bottom: 30%; right: -20px; border-bottom-color: #fb923c; animation-delay: 4s;"></div>
+    </div>
 
     <header>
         <div class="header-container">
@@ -25,39 +34,142 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-container">
-                <span class="hero-tag">New Release v1.0</span>
-                
-                <h1>お気に入りの配信を、<br><span>もう見逃さない。</span></h1>
-                
-                <p>YouTube・Twitch・TikTok・ツイキャス・ニコニコ生放送に対応。<br>
-                URLを入力するだけで、誰でも簡単に高画質録画。</p>
-                
-                <a href="download.html" class="btn-primary">今すぐダウンロード</a>
-
-                <div class="hero-image-wrapper">
-                    <img src="screenshot.png" alt="配信録画くんの操作画面">
-                </div>
-            </div>
-        </section>
-
         <div class="container">
-            <div class="platform-box">
-                <p style="color: #64748b; font-weight: bold; margin-bottom: 15px; font-size: 0.9rem;">対応プラットフォーム</p>
-                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-weight: bold; color: #334155;">
-                    <span>YouTube Live</span> / 
-                    <span>Twitch</span> / 
-                    <span>TikTok Live</span> / 
-                    <span>TwitCasting</span> / 
-                    <span>Niconico</span>
+            
+            <div class="top-grid">
+
+                <div class="pop-card hero-card">
+                    <span class="hero-tag">✨ 最新版 v1.1 リリース</span>
+                    
+                    <h1>お気に入りの配信を、<br>もう見逃さない！</h1>
+                    
+                    <p class="hero-desc">
+                        YouTube・Twitch・Kick・TikTok・ツイキャス・ニコニコ生放送・<br>
+                        radiko・OPENREC・bilibili に対応！<br>
+                        URLをポンと入れるだけで、誰でも簡単に高画質録画。
+                    </p>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <a href="download.html" class="btn-pop">今すぐダウンロード！</a>
+                    </div>
+
+                    <div class="hero-img-container">
+                        <img src="screenshot.png" alt="配信録画くんの操作画面">
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-title-pin">
+                        <span>お知らせ</span>
+                    </div>
+
+                    <ul class="news-list">
+                        <li class="news-item">
+                            <span class="news-date">2026.01.09</span>
+                            <span class="news-text">
+                                radiko, OPENREC.tv, bilibili の録画に対応しました！🎉
+                            </span>
+                        </li>
+                        <li class="news-item">
+                            <span class="news-date">2026.01.05</span>
+                            <span class="news-text">
+                                Kickの録画に対応したバージョン v1.1.0 をリリースしました。
+                            </span>
+                        </li>
+                        <li class="news-item">
+                            <span class="news-date">2025.12.25</span>
+                            <span class="news-text">
+                                サイトをリニューアルオープンしました。
+                            </span>
+                        </li>
+                         <li class="news-item">
+                            <span class="news-date">2025.11.15</span>
+                            <span class="news-text">
+                                TikTok Liveの仕様変更に対応しました。
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="separator"></div>
+
+            <div class="section-title-wrapper">
+                <div class="section-title-en" style="font-family: 'Zen Maru Gothic', sans-serif;">対応サイト</div>
+                <br>
+                <div class="section-title-ja">主要なプラットフォームに対応</div>
+            </div>
+
+            <div class="pop-card">
+                <div class="platform-list">
+                    <div class="platform-logo">
+                        <img src="youtube_logo.png" alt="YouTube Live">
+                    </div>
+                    <div class="platform-logo">
+                        <img src="twitch-logo-hd.png" alt="Twitch">
+                    </div>
+                    <div class="platform-logo">
+                        <img src="TwitCasting_katakana_logo.png" alt="TwitCasting">
+                    </div>
+                    <div class="platform-logo">
+                        <img src="nicolive.png" alt="Niconico">
+                    </div>
+                    <div class="platform-logo">
+                        <img src="tiktok.png" alt="TikTok Live">
+                    </div>
+                    <div class="platform-logo">
+                        <img src="Kick_logo.svg.png" alt="Kick">
+                    </div>
+                    <div class="platform-logo">
+                        <img src="img_logo_blue_01.png" alt="radiko">
+                    </div>
+                    <div class="platform-logo">
+                        <img src="OPENREC.tv_type_normal1.png" alt="OPENREC.tv">
+                    </div>
+                    <div class="platform-logo">
+                        <img src="bilibili.png" alt="bilibili">
+                    </div>
                 </div>
             </div>
+
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 配信録画くん All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">配信録画くん</div>
+                <p class="footer-desc">
+                    YouTube・Twitch・キャスなどを簡単録画。<br>
+                    推しの配信を永久保存するなら、<br>
+                    「配信録画くん」におまかせ！
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>サイトマップ</h3>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="features.html">機能紹介</a></li>
+                    <li><a href="download.html">ダウンロード</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>サポート・その他</h3>
+                <ul>
+                    <li><a href="#">利用規約</a></li>
+                    <li><a href="#">プライバシーポリシー</a></li>
+                    <li><a href="#">特定商取引法に基づく表記</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 配信録画くん All rights reserved.</p>
+        </div>
     </footer>
 
 </body>

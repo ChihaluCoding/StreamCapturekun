@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ダウンロード - 配信録画くん</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <div class="bg-decoration">
+        <div class="shape shape-circle" style="top: 10%; left: 5%; width: 50px; height: 50px; background: #facc15;"></div>
+        <div class="shape shape-circle" style="top: 60%; right: 10%; width: 80px; height: 80px; background: #f472b6; animation-delay: 1s;"></div>
+        <div class="shape shape-square" style="top: 20%; right: 15%; width: 40px; height: 40px; background: #60a5fa; animation-delay: 2s;"></div>
+        <div class="shape shape-square" style="bottom: 10%; left: 10%; width: 60px; height: 60px; background: #a78bfa; animation-delay: 3s;"></div>
+        <div class="shape shape-triangle" style="top: 40%; left: -20px; animation-delay: 1.5s;"></div>
+        <div class="shape shape-triangle" style="bottom: 30%; right: -20px; border-bottom-color: #fb923c; animation-delay: 4s;"></div>
+    </div>
 
     <header>
         <div class="header-container">
@@ -25,60 +32,85 @@
     </header>
 
     <main>
-        <div class="page-header">
-            <h1>ダウンロード</h1>
-            <p>最新版の配信録画くんをダウンロードして、快適な録画ライフを。</p>
-        </div>
-
         <div class="container">
-            <div class="download-card">
-                <h2>Windows 版をダウンロード</h2>
-                <div class="version-info">
-                    <span>バージョン: </span> | 
-                    <span>更新日: </span> | 
-                    <span>サイズ: 103MB</span>
-                </div>
-                
-                <a href="#" class="btn-primary" onclick="alert('デモサイトのため実際のダウンロードは開始されません')">
-                    無料ダウンロード (64bit)
-                </a>
-                
-                <p style="margin-top: 15px; font-size: 0.8rem; color: #94a3b8;">
-                    ※ Windows 10 / 11 対応
-                </p>
+            <div class="section-title-wrapper">
+                <div class="section-title-en" style="font-family: 'Zen Maru Gothic', sans-serif;">ダウンロード</div>
+                <br>
+                <div class="section-title-ja">最新版を入手しよう</div>
             </div>
 
-            <div class="specs">
-                <h2>動作環境</h2>
-                <table class="specs-table">
-                    <tr>
-                        <th>OS</th>
-                        <td>Windows 10 (64bit) / Windows 11</td>
-                    </tr>
-                    <tr>
-                        <th>プロセッサ</th>
-                        <td>Intel Core i3 以上 / AMD Ryzen 3 以上</td>
-                    </tr>
-                    <tr>
-                        <th>メモリ</th>
-                        <td>4GB 以上 (8GB 推奨)</td>
-                    </tr>
-                    <tr>
-                        <th>ディスク空き容量</th>
-                        <td>100MB 以上の空き容量 (録画データの保存には別途容量が必要)</td>
-                    </tr>
-                    <tr>
-                        <th>インターネット</th>
-                        <td>ブロードバンド接続が必要</td>
-                    </tr>
-                </table>
+            <div class="pop-card">
+                <div class="download-area">
+                    <h2 style="margin-bottom:20px; font-weight:900; color:var(--primary-color);">Windows版</h2>
+                    
+                    <div class="version-badge">v1.1.0 | 2026.01.09 | 45MB</div>
+                    <br>
+                    
+                    <a href="#" class="btn-pop" onclick="alert('デモサイトのため実際のダウンロードは開始されません')">
+                        無料ダウンロード
+                    </a>
+                    
+                    <p style="margin-top:20px; font-size:0.85rem; color:#64748b;">
+                        対応OS: Windows 10 / 11 (64bit)
+                    </p>
+                </div>
+
+                <div style="margin-top: 40px; text-align: left;">
+                    <h3 style="text-align:center; color:var(--text-main); font-weight:900;">⚡ 動作環境</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <th>OS</th>
+                            <td>Windows 10 / 11</td>
+                        </tr>
+                        <tr>
+                            <th>CPU</th>
+                            <td>Intel Core i3 / AMD Ryzen 3 以上</td>
+                        </tr>
+                        <tr>
+                            <th>メモリ</th>
+                            <td>4GB 以上 (8GB 推奨)</td>
+                        </tr>
+                        <tr>
+                            <th>容量</th>
+                            <td>100MB 以上の空き容量</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 配信録画くん All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">配信録画くん</div>
+                <p class="footer-desc">
+                    YouTube・Twitch・キャスなどを簡単録画。<br>
+                    推しの配信を永久保存するなら、<br>
+                    「配信録画くん」におまかせ！
+                </p>
+            </div>
+            <div class="footer-links">
+                <h3>サイトマップ</h3>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="features.html">機能紹介</a></li>
+                    <li><a href="download.html">ダウンロード</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>サポート・その他</h3>
+                <ul>
+                    <li><a href="#">利用規約</a></li>
+                    <li><a href="#">プライバシーポリシー</a></li>
+                    <li><a href="#">特定商取引法に基づく表記</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 配信録画くん All rights reserved.</p>
+        </div>
     </footer>
-
 </body>
 </html>
