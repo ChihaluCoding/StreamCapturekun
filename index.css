@@ -1,0 +1,175 @@
+@charset "UTF-8";
+
+/* --- トップエリア --- */
+.top-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* --- 左側：ヒーローカード --- */
+.hero-card {
+    padding: 40px;
+    text-align: center;
+    justify-content: center;
+}
+.hero-card::before {
+    content: '';
+    position: absolute;
+    top: -15px; left: 50%; transform: translateX(-50%);
+    width: 100px; height: 30px;
+    background: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.6);
+}
+
+.hero-tag {
+    display: inline-block;
+    background: var(--accent-pink);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 0 #db2777;
+    align-self: center;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 0 #dbeafe;
+    font-weight: 900; 
+}
+.hero-desc {
+    background: #f0f9ff;
+    padding: 20px;
+    border-radius: 16px;
+    border: 2px dashed #bae6fd;
+    margin-bottom: 35px;
+    color: var(--text-main);
+    font-weight: 700; 
+}
+
+.hero-img-container {
+    margin-top: auto;
+    padding: 12px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+.hero-img-container:hover { transform: scale(1.02); }
+.hero-img-container img { border-radius: 8px; border: 2px solid #f1f5f9; }
+
+/* --- 右側：ニュースカード --- */
+.news-card {
+    padding: 35px 30px;
+    text-align: left;
+    min-height: 600px;
+}
+
+.news-title-pin {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    flex-shrink: 0;
+}
+.news-title-pin span {
+    background: var(--accent-orange);
+    color: white;
+    font-family: var(--font-base); 
+    font-weight: 900;
+    padding: 5px 30px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+    display: inline-block;
+}
+.news-title-pin::before {
+    content: '';
+    display: block;
+    width: 14px; height: 14px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    position: absolute; top: -6px; left: 50%;
+    transform: translateX(-50%);
+    box-shadow: inset 1px 1px 2px rgba(255,255,255,0.5), 1px 1px 2px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.news-list {
+    margin-top: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+.news-item {
+    border-bottom: 2px dashed #e2e8f0;
+    padding: 20px 0;
+    font-size: 0.95rem;
+}
+.news-item:last-child { border-bottom: none; }
+.news-date {
+    display: inline-block;
+    background: #e0f2fe;
+    color: var(--primary-color);
+    font-weight: 900; 
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+.news-text { display: block; line-height: 1.6; font-weight: 700; } 
+.news-link { color: var(--primary-color); text-decoration: underline; cursor: pointer; }
+
+/* --- プラットフォーム（ロゴ表示用スタイル） --- */
+.platform-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+}
+
+.platform-logo {
+    background: #fff;
+    border: 2px solid var(--text-main);
+    border-radius: 16px;
+    box-shadow: 4px 4px 0 var(--text-main);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 80px;
+    transition: 0.2s;
+}
+
+.platform-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.platform-logo:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--text-main);
+    background: #fefce8;
+}
+
+@media (max-width: 1024px) {
+    .top-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .hero-card, .news-card {
+        height: auto;
+        min-height: auto;
+    }
+    .news-card { order: 2; }
+}

@@ -12,65 +12,145 @@
     />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
+
+    <style>
+      /* --- ローディング画面全体 --- */
+      #loading-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* 目に優しいふんわりグラデーション */
+        background: linear-gradient(180deg, #ffffff 0%, #e0f2fe 100%);
+        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+      }
+
+      /* --- 読み込み完了時の動作（ふわっと消える） --- */
+      #loading-wrapper.loaded {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      /* --- コンテンツエリア --- */
+      .loader-content {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* --- ロゴ画像 --- */
+      .loader-logo {
+        width: 600px;
+        max-width: 85%;
+        height: auto;
+        margin-bottom: 30px;
+        /* ふわふわ浮くアニメーション */
+        animation: floatLogo 2s infinite ease-in-out;
+        filter: drop-shadow(0 10px 0 rgba(59, 130, 246, 0.1));
+      }
+
+      @keyframes floatLogo {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* --- テキストエリア --- */
+      .loader-text {
+        font-family: 'Fredoka One', cursive;
+        color: #3b82f6;
+        font-size: 1.8rem;
+        letter-spacing: 0.15em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 25px;
+        text-shadow: 2px 2px 0 #ffffff;
+      }
+
+      /* RECマーク */
+      .rec-dot {
+        color: #ef4444;
+        font-size: 1.4rem;
+        animation: blinkDot 0.8s infinite alternate;
+      }
+
+      @keyframes blinkDot {
+        0% { opacity: 1; transform: scale(1); }
+        100% { opacity: 0.3; transform: scale(0.8); }
+      }
+
+      /* --- プログレスバー --- */
+      .loading-bar-container {
+        width: 240px;
+        height: 10px;
+        background: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 2px solid #bfdbfe;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        position: relative;
+      }
+
+      .loading-bar {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #facc15, #f472b6, #60a5fa);
+        background-size: 200% 200%;
+        border-radius: 20px;
+        /* 4秒かけてバーが伸びる */
+        animation: 
+            fillBar 4s cubic-bezier(0.2, 0, 0.2, 1) forwards,
+            gradientMove 2s linear infinite;
+      }
+
+      @keyframes fillBar {
+        0% { width: 0%; }
+        40% { width: 50%; }
+        80% { width: 90%; }
+        100% { width: 100%; }
+      }
+
+      @keyframes gradientMove {
+        0% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+    </style>
   </head>
   <body>
+    
+    <div id="loading-wrapper">
+      <div class="loader-content">
+        <img src="logo.png" alt="Loading..." class="loader-logo">
+        <div class="loader-text">
+          <span class="rec-dot">●</span> NOW LOADING...
+        </div>
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+      </div>
+    </div>
     <div class="bg-decoration">
-      <div
-        class="shape shape-circle"
-        style="
-          top: 10%;
-          left: 5%;
-          width: 50px;
-          height: 50px;
-          background: #facc15;
-        "
-      ></div>
-      <div
-        class="shape shape-circle"
-        style="
-          top: 60%;
-          right: 10%;
-          width: 80px;
-          height: 80px;
-          background: #f472b6;
-          animation-delay: 1s;
-        "
-      ></div>
-      <div
-        class="shape shape-square"
-        style="
-          top: 20%;
-          right: 15%;
-          width: 40px;
-          height: 40px;
-          background: #60a5fa;
-          animation-delay: 2s;
-        "
-      ></div>
-      <div
-        class="shape shape-square"
-        style="
-          bottom: 10%;
-          left: 10%;
-          width: 60px;
-          height: 60px;
-          background: #a78bfa;
-          animation-delay: 3s;
-        "
-      ></div>
-      <div
-        class="shape shape-triangle"
-        style="top: 40%; left: -20px; animation-delay: 1.5s"
-      ></div>
-      <div
-        class="shape shape-triangle"
-        style="
-          bottom: 30%;
-          right: -20px;
-          border-bottom-color: #fb923c;
-          animation-delay: 4s;
-        "
-      ></div>
+      <div class="shape shape-circle" style="top: 10%; left: 5%; width: 50px; height: 50px; background: #facc15;"></div>
+      <div class="shape shape-circle" style="top: 60%; right: 10%; width: 80px; height: 80px; background: #f472b6; animation-delay: 1s;"></div>
+      <div class="shape shape-square" style="top: 20%; right: 15%; width: 40px; height: 40px; background: #60a5fa; animation-delay: 2s;"></div>
+      <div class="shape shape-square" style="bottom: 10%; left: 10%; width: 60px; height: 60px; background: #a78bfa; animation-delay: 3s;"></div>
+      <div class="shape shape-triangle" style="top: 40%; left: -20px; animation-delay: 1.5s;"></div>
+      <div class="shape shape-triangle" style="bottom: 30%; right: -20px; border-bottom-color: #fb923c; animation-delay: 4s;"></div>
     </div>
 
     <header>
@@ -112,7 +192,7 @@
             </div>
           </div>
 
-          <div class="news-card">
+          <div class="pop-card news-card">
             <div class="news-title-pin">
               <span>お知らせ</span>
             </div>
@@ -131,10 +211,7 @@
         <div class="separator"></div>
 
         <div class="section-title-wrapper">
-          <div
-            class="section-title-en"
-            style="font-family: 'Zen Maru Gothic', sans-serif"
-          >
+          <div class="section-title-en" style="font-family: 'Zen Maru Gothic', sans-serif">
             対応サイト
           </div>
           <br />
@@ -143,45 +220,19 @@
 
         <div class="pop-card">
           <div class="platform-list">
-            <div class="platform-logo">
-              <img src="youtube_logo.png" alt="YouTube Live" />
-            </div>
-            <div class="platform-logo">
-              <img src="twitch-logo-hd.png" alt="Twitch" />
-            </div>
-            <div class="platform-logo">
-              <img src="TwitCasting_katakana_logo.png" alt="TwitCasting" />
-            </div>
-            <div class="platform-logo">
-              <img src="nicolive.png" alt="Niconico" />
-            </div>
-            <div class="platform-logo">
-              <img src="tiktok.png" alt="TikTok Live" />
-            </div>
-            <div class="platform-logo">
-              <img src="Kick_logo.svg.png" alt="Kick" />
-            </div>
-            <div class="platform-logo">
-              <img src="img_logo_blue_01.png" alt="radiko" />
-            </div>
-            <div class="platform-logo">
-              <img src="OPENREC.tv_type_normal1.png" alt="OPENREC.tv" />
-            </div>
-            <div class="platform-logo">
-              <img src="bilibili.png" alt="bilibili" />
-            </div>
-            <div class="platform-logo">
-              <img src="abematv.png" alt="AbemaTV" />
-            </div>
-            <div class="platform-logo">
-              <img src="17live.png" alt="17LIVE" />
-            </div>
-            <div class="platform-logo">
-              <img src="bigolive.png" alt="BIGO LIVE" />
-            </div>
-            <div class="platform-logo">
-              <img src="whowatch.png" alt="ふわっち" />
-            </div>
+            <div class="platform-logo"><img src="youtube_logo.png" alt="YouTube Live" /></div>
+            <div class="platform-logo"><img src="twitch-logo-hd.png" alt="Twitch" /></div>
+            <div class="platform-logo"><img src="TwitCasting_katakana_logo.png" alt="TwitCasting" /></div>
+            <div class="platform-logo"><img src="nicolive.png" alt="Niconico" /></div>
+            <div class="platform-logo"><img src="tiktok.png" alt="TikTok Live" /></div>
+            <div class="platform-logo"><img src="Kick_logo.svg.png" alt="Kick" /></div>
+            <div class="platform-logo"><img src="img_logo_blue_01.png" alt="radiko" /></div>
+            <div class="platform-logo"><img src="OPENREC.tv_type_normal1.png" alt="OPENREC.tv" /></div>
+            <div class="platform-logo"><img src="bilibili.png" alt="bilibili" /></div>
+            <div class="platform-logo"><img src="abematv.png" alt="AbemaTV" /></div>
+            <div class="platform-logo"><img src="17live.png" alt="17LIVE" /></div>
+            <div class="platform-logo"><img src="bigolive.png" alt="BIGO LIVE" /></div>
+            <div class="platform-logo"><img src="whowatch.png" alt="ふわっち" /></div>
           </div>
         </div>
       </div>
@@ -191,12 +242,7 @@
       <div class="footer-container">
         <div class="footer-brand">
           <a href="index.html" class="logo-link">
-            <img
-              src="logo.png"
-              alt="配信録画くん"
-              class="logo-img"
-              style="height: 100px"
-            />
+            <img src="logo.png" alt="配信録画くん" class="logo-img" style="height: 100px" />
           </a>
           <p class="footer-desc">
             YouTube・Twitch・キャスなどを簡単録画。<br />
@@ -226,5 +272,31 @@
         <p>&copy; 2026 配信録画くん All rights reserved.</p>
       </div>
     </footer>
-  </body>
+
+    <script>
+      (function() {
+        const key = 'visit_flg';
+        const loader = document.getElementById('loading-wrapper');
+
+        // ナビゲーションタイプを取得（リロードかどうか判定）
+        const entries = performance.getEntriesByType("navigation");
+        const navType = entries.length > 0 ? entries[0].type : "";
+        const isReload = (navType === 'reload');
+
+        // 条件: 「訪問済み(keyがある)」かつ「リロードではない」場合だけ非表示
+        if (sessionStorage.getItem(key) && !isReload) {
+            loader.style.display = 'none';
+        } else {
+            // 初回アクセス または リロード時はアニメーション実行
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    loader.classList.add('loaded');
+                    // 訪問済みフラグを立てる
+                    sessionStorage.setItem(key, 'true');
+                }, 4000); 
+            });
+        }
+      })();
+    </script>
+    </body>
 </html>

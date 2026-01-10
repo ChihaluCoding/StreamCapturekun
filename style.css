@@ -7,16 +7,10 @@
     --accent-pink: #f472b6;
     --accent-yellow: #facc15;
     --accent-orange: #fb923c;
-    
-    /* 背景: グラデーション */
     --bg-gradient: linear-gradient(135deg, #93c5fd 0%, #c4b5fd 100%);
-    
-    /* 方眼紙用 */
     --grid-color: #f1f5f9;
-
     --text-main: #334155;
     --text-white: #ffffff;
-    
     --font-base: 'Zen Maru Gothic', sans-serif;
     --font-en: 'Fredoka One', cursive, sans-serif;
 }
@@ -99,18 +93,17 @@ header {
     height: 100%;
 }
 
-/* ロゴ画像のサイズ調整（ここが重要） */
 .logo-link {
     display: block;
-    height: 50px; /* リンクエリアの高さ */
+    height: 50px;
     display: flex;
     align-items: center;
 }
 .logo-img {
-    height: 100%;      /* 親要素(.logo-link)の高さに合わせる */
-    max-height: 50px;  /* 最大でも50pxまで */
-    width: auto;       /* 横幅は自動調整 */
-    object-fit: contain; /* アスペクト比を維持 */
+    height: 100%;
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
     display: block;
 }
 
@@ -133,7 +126,7 @@ nav a:hover, nav a.active {
 }
 
 /* --- メインレイアウト --- */
-main { padding: 40px 0 80px; }
+main { padding: 80px 0 120px; }
 
 .container {
     width: 96%;
@@ -141,22 +134,13 @@ main { padding: 40px 0 80px; }
     margin: 0 auto;
 }
 
-/* --- トップエリア --- */
-.top-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr; 
-    gap: 30px;
-    align-items: stretch;
-}
-
 /* --- 共通カード --- */
-.pop-card, .news-card {
+.pop-card {
     background-color: #ffffff;
     background-image: 
         linear-gradient(var(--grid-color) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
     background-size: 20px 20px;
-    
     border-radius: 24px;
     box-shadow: 
         0 10px 0 rgba(0,0,0,0.05),
@@ -166,52 +150,6 @@ main { padding: 40px 0 80px; }
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-/* --- 左側：ヒーローカード --- */
-.hero-card {
-    padding: 40px;
-    text-align: center;
-    justify-content: center;
-}
-.hero-card::before {
-    content: '';
-    position: absolute;
-    top: -15px; left: 50%; transform: translateX(-50%);
-    width: 100px; height: 30px;
-    background: rgba(255,255,255,0.4);
-    border: 1px solid rgba(255,255,255,0.6);
-}
-
-.hero-tag {
-    display: inline-block;
-    background: var(--accent-pink);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 800;
-    margin-bottom: 25px;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 0 #db2777;
-    align-self: center;
-}
-
-.hero h1 {
-    font-size: 2.2rem;
-    line-height: 1.4;
-    margin-bottom: 25px;
-    color: var(--primary-color);
-    text-shadow: 2px 2px 0 #dbeafe;
-    font-weight: 900; 
-}
-.hero-desc {
-    background: #f0f9ff;
-    padding: 20px;
-    border-radius: 16px;
-    border: 2px dashed #bae6fd;
-    margin-bottom: 35px;
-    color: var(--text-main);
-    font-weight: 700; 
 }
 
 /* ボタン */
@@ -226,6 +164,7 @@ main { padding: 40px 0 80px; }
     box-shadow: 0 6px 0 #d97706, 0 15px 20px rgba(251, 191, 36, 0.4);
     transition: 0.1s;
     border: 3px solid #fff;
+    cursor: pointer; /* 追加 */
 }
 .btn-pop:hover {
     transform: scale(1.05);
@@ -236,92 +175,19 @@ main { padding: 40px 0 80px; }
     box-shadow: 0 2px 0 #d97706;
 }
 
-.hero-img-container {
-    margin-top: auto;
-    padding: 12px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-.hero-img-container:hover { transform: scale(1.02); }
-.hero-img-container img { border-radius: 8px; border: 2px solid #f1f5f9; }
-
-
-/* --- 右側：ニュースカード --- */
-.news-card {
-    padding: 35px 30px;
-    text-align: left;
-    min-height: 600px;
-}
-
-.news-title-pin {
-    text-align: center;
-    margin-bottom: 25px;
-    position: relative;
-    flex-shrink: 0;
-}
-.news-title-pin span {
-    background: var(--accent-orange);
-    color: white;
-    font-family: var(--font-base); 
-    font-weight: 900;
-    padding: 5px 30px;
-    font-size: 1.2rem;
-    border-radius: 6px;
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-    display: inline-block;
-}
-.news-title-pin::before {
-    content: '';
-    display: block;
-    width: 14px; height: 14px;
-    background: #cbd5e1;
-    border-radius: 50%;
-    position: absolute; top: -6px; left: 50%;
-    transform: translateX(-50%);
-    box-shadow: inset 1px 1px 2px rgba(255,255,255,0.5), 1px 1px 2px rgba(0,0,0,0.2);
-    z-index: 2;
-}
-
-.news-list {
-    margin-top: 10px;
-    overflow-y: auto;
-    flex-grow: 1;
-}
-.news-item {
-    border-bottom: 2px dashed #e2e8f0;
-    padding: 20px 0;
-    font-size: 0.95rem;
-}
-.news-item:last-child { border-bottom: none; }
-.news-date {
-    display: inline-block;
-    background: #e0f2fe;
-    color: var(--primary-color);
-    font-weight: 900; 
-    font-size: 0.85rem;
-    padding: 4px 10px;
-    border-radius: 6px;
-    margin-bottom: 8px;
-}
-.news-text { display: block; line-height: 1.6; font-weight: 700; } 
-.news-link { color: var(--primary-color); text-decoration: underline; cursor: pointer; }
-
-
 /* --- 区切り線 --- */
 .separator {
     height: 2px;
     background: rgba(255,255,255,0.3);
     width: 100%;
-    margin: 60px 0 40px;
+    margin: 80px 0 60px;
     border-radius: 2px;
 }
 
 /* --- 見出し --- */
 .section-title-wrapper {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 70px;
 }
 .section-title-en {
     font-family: var(--font-base);
@@ -345,135 +211,7 @@ main { padding: 40px 0 80px; }
     box-shadow: 0 4px 0 rgba(0,0,0,0.1);
 }
 
-/* --- プラットフォーム（ロゴ表示用スタイル） --- */
-.platform-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 30px;
-}
-
-.platform-logo {
-    background: #fff;
-    border: 2px solid var(--text-main);
-    border-radius: 16px;
-    box-shadow: 4px 4px 0 var(--text-main);
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 140px;
-    height: 80px;
-    transition: 0.2s;
-}
-
-.platform-logo img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-.platform-logo:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 var(--text-main);
-    background: #fefce8;
-}
-
-/* --- 機能紹介 --- */
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-.feature-item {
-    background: #fff;
-    border-radius: 20px;
-    padding: 30px 20px;
-    border: 3px solid #e2e8f0;
-    position: relative;
-    transition: 0.3s;
-}
-.feature-item:hover {
-    border-color: var(--primary-pop);
-    transform: translateY(-5px);
-}
-.feature-title-tape {
-    background: var(--primary-pop);
-    color: white;
-    display: inline-block;
-    padding: 4px 15px;
-    font-size: 0.9rem;
-    font-weight: 900; 
-    margin-bottom: 15px;
-    position: relative;
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-    top: -10px;
-}
-.feature-icon {
-    background: #eff6ff;
-    width: 70px; height: 70px;
-    line-height: 70px;
-    border-radius: 50%;
-    margin: 0 auto 15px;
-    font-size: 2rem;
-    display: block;
-    text-align: center;
-    border: 2px solid var(--primary-color);
-}
-.feature-item h3 {
-    font-weight: 900; 
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-.feature-item p {
-    font-weight: 500;
-}
-
-/* --- ダウンロード --- */
-.download-area {
-    background: #fffbeb; 
-    border: 4px dotted var(--accent-yellow);
-    border-radius: 24px;
-    padding: 50px;
-}
-.version-badge {
-    background: var(--primary-color);
-    color: #fff;
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-weight: 900; 
-    display: inline-block;
-    margin-bottom: 20px;
-}
-.specs-table {
-    width: 100%;
-    margin-top: 30px;
-    border-collapse: separate;
-    border-spacing: 0 10px;
-}
-.specs-table th {
-    background: var(--primary-color);
-    color: #fff;
-    padding: 12px;
-    border-radius: 10px 0 0 10px;
-    width: 30%;
-    font-weight: 900; 
-}
-.specs-table td {
-    background: #f8fafc;
-    padding: 12px;
-    border-radius: 0 10px 10px 0;
-    border: 2px solid #f1f5f9;
-    border-left: none;
-    text-align: left;
-    font-weight: 700; 
-    color: var(--text-main);
-}
-
-/* --- フッター（ロゴサイズ調整版） --- */
+/* --- フッター --- */
 footer {
     text-align: center;
     color: #fff;
@@ -483,7 +221,6 @@ footer {
     margin-top: auto;
     color: var(--text-main);
 }
-
 .footer-container {
     width: 90%;
     max-width: 1200px;
@@ -493,28 +230,23 @@ footer {
     gap: 40px;
     margin-bottom: 40px;
 }
-
 .footer-brand { text-align: left; }
-
-/* フッターのロゴを大きくするための上書き設定 */
 .footer-brand .logo-link {
-    height: auto; /* ヘッダーの50px制限を解除 */
+    height: auto;
     display: inline-block;
     margin-bottom: 20px;
 }
 .footer-brand .logo-img {
-    max-height: 120px; /* 最大サイズを大きく設定 */
-    height: 100px;     /* 基本の高さを100pxに */
+    max-height: 120px;
+    height: 100px;
     width: auto;
 }
-
 .footer-desc {
     font-size: 0.9rem;
     line-height: 1.8;
     color: #64748b;
     font-weight: 500;
 }
-
 .footer-links { text-align: left; }
 .footer-links h3 {
     font-weight: 900;
@@ -543,7 +275,6 @@ footer {
     background: none;
     box-shadow: none;
 }
-
 .footer-bottom {
     text-align: center;
     border-top: 2px dashed #e2e8f0;
@@ -551,21 +282,6 @@ footer {
     color: #94a3b8;
     font-size: 0.85rem;
     font-weight: 700; 
-}
-
-/* スマホ対応 */
-@media (max-width: 1024px) {
-    .top-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .hero-card, .news-card {
-        height: auto;
-        min-height: auto;
-    }
-    .news-card { order: 2; }
-    .specs-table th, .specs-table td { display: block; width: 100%; border-radius: 10px; border: none; }
-    .specs-table th { margin-bottom: 5px; }
 }
 
 @media (max-width: 768px) {
@@ -578,91 +294,110 @@ footer {
         text-align: center;
     }
     .logo-link {
-        justify-content: center; 
+        justify-content: center;
     }
 }
 
-.footer-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
+/* =========================================
+   ▼▼▼ ここから追加：ローディング画面スタイル ▼▼▼
+   ========================================= */
+#loading-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #ffffff 0%, #e0f2fe 100%);
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
 }
 
-.footer-brand { text-align: left; }
-.footer-desc {
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: #64748b;
-    font-weight: 500;
+#loading-wrapper.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
-.footer-links { text-align: left; }
-.footer-links h3 {
-    font-weight: 900;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    border-bottom: 3px solid var(--accent-yellow);
-    display: inline-block;
-    padding-bottom: 5px;
-}
-.footer-links ul { list-style: none; padding: 0; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a {
-    color: var(--text-main);
-    font-weight: 700;
-    transition: 0.2s;
-    font-size: 0.95rem;
-    display: inline-block;
-    border: none;
-    background: none;
-    padding: 0;
-}
-.footer-links a:hover {
-    color: var(--primary-color);
-    transform: translateX(5px);
-    background: none;
-    box-shadow: none;
-}
-
-.footer-bottom {
+.loader-content {
     text-align: center;
-    border-top: 2px dashed #e2e8f0;
-    padding-top: 30px;
-    color: #94a3b8;
-    font-size: 0.85rem;
-    font-weight: 700; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* スマホ対応 */
-@media (max-width: 1024px) {
-    .top-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .hero-card, .news-card {
-        height: auto;
-        min-height: auto;
-    }
-    .news-card { order: 2; }
-    .specs-table th, .specs-table td { display: block; width: 100%; border-radius: 10px; border: none; }
-    .specs-table th { margin-bottom: 5px; }
+.loader-logo {
+    width: 600px;
+    max-width: 85%;
+    height: auto;
+    margin-bottom: 30px;
+    animation: floatLogo 2s infinite ease-in-out;
+    filter: drop-shadow(0 10px 0 rgba(59, 130, 246, 0.1));
 }
 
-@media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-    }
-    .footer-brand, .footer-links {
-        text-align: center;
-    }
-    .logo-link {
-        justify-content: center; /* モバイルでロゴを中央に */
-    }
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.loader-text {
+    font-family: 'Fredoka One', cursive;
+    color: #3b82f6;
+    font-size: 1.8rem;
+    letter-spacing: 0.15em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 0 #ffffff;
+}
+
+.rec-dot {
+    color: #ef4444;
+    font-size: 1.4rem;
+    animation: blinkDot 0.8s infinite alternate;
+}
+
+@keyframes blinkDot {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.3; transform: scale(0.8); }
+}
+
+.loading-bar-container {
+    width: 240px;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid #bfdbfe;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.loading-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #facc15, #f472b6, #60a5fa);
+    background-size: 200% 200%;
+    border-radius: 20px;
+    animation: 
+        fillBar 4s cubic-bezier(0.2, 0, 0.2, 1) forwards,
+        gradientMove 2s linear infinite;
+}
+
+@keyframes fillBar {
+    0% { width: 0%; }
+    40% { width: 50%; }
+    80% { width: 90%; }
+    100% { width: 100%; }
+}
+
+@keyframes gradientMove {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+/* --- 機能紹介 --- */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.page-features .pop-card {
+    padding: 30px;
+}
+.page-features .feature-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.feature-item {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 20px;
+    border: 3px solid #e2e8f0;
+    position: relative;
+    transition: 0.3s;
+}
+.feature-item:hover {
+    border-color: var(--primary-pop);
+    transform: translateY(-5px);
+}
+.feature-title-tape {
+    background: var(--primary-pop);
+    color: white;
+    display: inline-block;
+    padding: 4px 15px;
+    font-size: 0.9rem;
+    font-weight: 900; 
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+    top: -10px;
+}
+.feature-icon {
+    background: #eff6ff;
+    width: 70px; height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+}
+.feature-item h3 {
+    font-weight: 900; 
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.feature-item p {
+    font-weight: 500;
+}

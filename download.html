@@ -6,8 +6,21 @@
     <title>ダウンロード - 配信録画くん</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="download.css">
 </head>
-<body>
+<body class="page-download">
+    
+    <div id="loading-wrapper">
+        <div class="loader-content">
+            <img src="logo.png" alt="Loading..." class="loader-logo">
+            <div class="loader-text">
+                <span class="rec-dot">●</span> NOW LOADING...
+            </div>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
     
     <div class="bg-decoration">
         <div class="shape shape-circle" style="top: 10%; left: 5%; width: 50px; height: 50px; background: #facc15;"></div>
@@ -42,45 +55,101 @@
             </div>
 
             <div class="pop-card">
-                <div class="download-area">
-                    <h2 style="margin-bottom:20px; font-weight:900; color:var(--primary-color);">Windows版</h2>
-                    
-                    <div class="version-badge">v1.1.0 | 2026.01.09 | 45MB</div>
-                    <br>
-                    
-                    <a href="#" class="btn-pop" onclick="alert('デモサイトのため実際のダウンロードは開始されません')">
-                        無料ダウンロード
-                    </a>
-                    
-                    <p style="margin-top:20px; font-size:0.85rem; color:#64748b;">
-                        対応OS: Windows 10 / 11 (64bit)
-                    </p>
+                <div class="download-grid">
+                    <div class="download-area">
+                        <h2 style="margin-bottom:20px; font-weight:900; color:var(--primary-color);">Windows版</h2>
+                        <div class="version-badge">v1.1.0 | 2026.01.09 | 45MB</div>
+                        <br>
+                        <button class="btn-pop" onclick="openTosModal('windows')">
+                            無料ダウンロード
+                        </button>
+                        <p style="margin-top:20px; font-size:0.85rem; color:#64748b;">
+                            対応OS: Windows 10 / 11 (64bit)
+                        </p>
+                    </div>
+
+                    <div class="download-area">
+                        <h2 style="margin-bottom:20px; font-weight:900; color:var(--primary-color);">Mac版</h2>
+                        <div class="version-badge">v1.1.0 | 2026.01.09 | 52MB</div>
+                        <br>
+                        <button class="btn-pop" onclick="openTosModal('mac')">
+                            無料ダウンロード
+                        </button>
+                        <p style="margin-top:20px; font-size:0.85rem; color:#64748b;">
+                            対応OS: macOS 12 以降 (Apple Silicon / Intel)
+                        </p>
+                    </div>
                 </div>
 
-                <div style="margin-top: 40px; text-align: left;">
-                    <h3 style="text-align:center; color:var(--text-main); font-weight:900;">⚡ 動作環境</h3>
-                    <table class="specs-table">
-                        <tr>
-                            <th>OS</th>
-                            <td>Windows 10 / 11</td>
-                        </tr>
-                        <tr>
-                            <th>CPU</th>
-                            <td>Intel Core i3 / AMD Ryzen 3 以上</td>
-                        </tr>
-                        <tr>
-                            <th>メモリ</th>
-                            <td>4GB 以上 (8GB 推奨)</td>
-                        </tr>
-                        <tr>
-                            <th>容量</th>
-                            <td>100MB 以上の空き容量</td>
-                        </tr>
-                    </table>
+                <div class="specs-grid">
+                    <div class="specs-card">
+                        <h3 class="specs-title">Windows 動作環境</h3>
+                        <table class="specs-table">
+                            <tr><th>OS</th><td>Windows 10 / 11</td></tr>
+                            <tr><th>CPU</th><td>Intel Core i3 / AMD Ryzen 3 以上</td></tr>
+                            <tr><th>メモリ</th><td>4GB 以上 (8GB 推奨)</td></tr>
+                            <tr><th>容量</th><td>100MB 以上の空き容量</td></tr>
+                        </table>
+                    </div>
+                    <div class="specs-card">
+                        <h3 class="specs-title">Mac 動作環境</h3>
+                        <table class="specs-table">
+                            <tr><th>OS</th><td>macOS 12 Monterey 以降</td></tr>
+                            <tr><th>CPU</th><td>Apple Silicon / Intel Core i5 以上</td></tr>
+                            <tr><th>メモリ</th><td>8GB 以上 (16GB 推奨)</td></tr>
+                            <tr><th>容量</th><td>150MB 以上の空き容量</td></tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <div id="tos-modal" class="modal-overlay">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeTosModal()">×</button>
+            <div class="modal-title">利用規約</div>
+            
+            <div class="tos-scroll-area" id="tos-scroll">
+                <p><strong>第1条（はじめに）</strong><br>
+                このソフトウェア「配信録画くん」（以下、本ソフト）は私用目的のために開発したものです。ご利用になる前に、本規約を必ずお読みください。</p>
+                <br>
+                <p><strong>第2条（著作権）</strong><br>
+                本ソフトに関する著作権その他の権利は、開発者に帰属します。</p>
+                <br>
+                <p><strong>第3条（免責事項）</strong><br>
+                本ソフトの利用により生じた損害等について、開発者は一切の責任を負いません。自己責任にてご利用ください。</p>
+                <br>
+                <p><strong>第4条（禁止事項）</strong><br>
+                ・本ソフトの無断での再配布、販売<br>
+                ・リバースエンジニアリング、改変<br>
+                ・本ソフトで録画した配信を、配信者の許可なくインターネット上に公開する行為<br></p>
+                <br>
+                <p><strong>第5条（規約の変更）</strong><br>
+                本規約は予告なく変更される場合があります。</p>
+                <br>
+                <p>--------------------------------------------------</p>
+                <p>最後までスクロールしないと同意ボタンが押せません。</p>
+                <p>最後までお読みいただきありがとうございます。</p>
+                <p>--------------------------------------------------</p>
+                <p>以上、利用規約に同意の上でダウンロードしてください。</p>
+                
+                <div id="tos-end-marker" style="height: 1px; width: 100%;"></div>
+            </div>
+
+            <div class="tos-check-area" id="tos-check-wrapper">
+                <p class="tos-alert" id="tos-alert-msg">※最後までスクロールすると同意チェックが可能になります</p>
+                <label>
+                    <input type="checkbox" id="tos-checkbox" onchange="toggleDownloadBtn()" disabled>
+                    <span>利用規約に同意する</span>
+                </label>
+            </div>
+
+            <button id="final-download-btn" class="btn-pop btn-disabled" onclick="executeDownload()" disabled>
+                ダウンロード開始
+            </button>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-container">
@@ -103,12 +172,10 @@
                 </ul>
             </div>
             <div class="footer-links">
-                <h3>サポート・その他</h3>
+                <h3>SNS</h3>
                 <ul>
-                    <li><a href="#">利用規約</a></li>
-                    <li><a href="#">プライバシーポリシー</a></li>
-                    <li><a href="#">特定商取引法に基づく表記</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">X (Twitter)</a></li>
+                    <li><a href="#">GitHub</a></li>
                 </ul>
             </div>
         </div>
@@ -116,5 +183,108 @@
             <p>&copy; 2026 配信録画くん All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        /* ローディング用 */
+        (function() {
+            const key = 'visit_flg';
+            const loader = document.getElementById('loading-wrapper');
+            const entries = performance.getEntriesByType("navigation");
+            const navType = entries.length > 0 ? entries[0].type : "";
+            const isReload = (navType === 'reload');
+
+            if (sessionStorage.getItem(key) && !isReload) {
+                loader.style.display = 'none';
+            } else {
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        loader.classList.add('loaded');
+                        sessionStorage.setItem(key, 'true');
+                    }, 4000); 
+                });
+            }
+        })();
+
+        /* --- ▼▼▼ モーダル＆スクロール処理（超軽量版） ▼▼▼ --- */
+        let currentDownloadOs = '';
+
+        // 要素キャッシュ
+        const tosModal = document.getElementById('tos-modal');
+        const tosScroll = document.getElementById('tos-scroll');
+        const tosCheckWrapper = document.getElementById('tos-check-wrapper');
+        const tosCheckbox = document.getElementById('tos-checkbox');
+        const tosAlertMsg = document.getElementById('tos-alert-msg');
+        const finalBtn = document.getElementById('final-download-btn');
+        const tosEndMarker = document.getElementById('tos-end-marker');
+
+        // ★新機能: IntersectionObserver（交差監視API）
+        // スクロール計算をせず、「見えない線」が見えた瞬間だけ動くので超高速です
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) {
+                // 最後まで読んだ時の処理
+                tosCheckWrapper.classList.remove('disabled');
+                tosCheckbox.disabled = false;
+                tosAlertMsg.style.display = 'none';
+                
+                // 一度解除したら監視を終了（さらに負荷軽減）
+                observer.disconnect();
+            }
+        }, {
+            root: tosScroll, // 監視する枠
+            threshold: 1.0   // マーカーが完全に見えたら発火
+        });
+
+        function openTosModal(os) {
+            currentDownloadOs = os;
+
+            // 初期化
+            tosScroll.scrollTop = 0; 
+            
+            tosCheckWrapper.classList.add('disabled');
+            tosCheckbox.checked = false;
+            tosCheckbox.disabled = true;
+            
+            finalBtn.disabled = true;
+            finalBtn.classList.add('btn-disabled');
+            
+            tosAlertMsg.style.display = 'block';
+
+            // モーダルを表示
+            tosModal.classList.add('active');
+
+            // ★監視スタート（要素が見えるようになってから開始）
+            // 少しだけ待つことで、アニメーション中の負荷も回避
+            setTimeout(() => {
+                observer.disconnect(); // 念のためリセット
+                observer.observe(tosEndMarker);
+            }, 300);
+        }
+
+        function closeTosModal() {
+            tosModal.classList.remove('active');
+            observer.disconnect(); // 閉じたら監視停止
+        }
+
+        function toggleDownloadBtn() {
+            if(tosCheckbox.checked) {
+                finalBtn.disabled = false;
+                finalBtn.classList.remove('btn-disabled');
+            } else {
+                finalBtn.disabled = true;
+                finalBtn.classList.add('btn-disabled');
+            }
+        }
+
+        function executeDownload() {
+            closeTosModal();
+            setTimeout(() => {
+                if(currentDownloadOs === 'windows') {
+                    alert('Windows版のダウンロードを開始します！\n(デモ)');
+                } else {
+                    alert('Mac版のダウンロードを開始します！\n(デモ)');
+                }
+            }, 300);
+        }
+    </script>
 </body>
 </html>
