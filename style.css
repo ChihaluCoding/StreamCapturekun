@@ -17,7 +17,6 @@
     --text-main: #334155;
     --text-white: #ffffff;
     
-    /* フォント設定: 太さを 500 と 700 を中心に使用 */
     --font-base: 'Zen Maru Gothic', sans-serif;
     --font-en: 'Fredoka One', cursive, sans-serif;
 }
@@ -33,7 +32,6 @@ body {
     line-height: 1.8;
     background-attachment: fixed;
     overflow-x: hidden;
-    /* 本文の太さを少し上げる（通常400 -> 500） */
     font-weight: 500; 
 }
 
@@ -101,23 +99,28 @@ header {
     height: 100%;
 }
 
-.logo {
-    font-size: 1.4rem;
-    /* ロゴの太さを最大に */
-    font-weight: 900; 
-    color: var(--primary-color);
-    background: #fff;
-    padding: 5px 20px;
-    border-radius: 30px;
-    border: 2px solid var(--primary-pop);
-    box-shadow: 3px 3px 0 var(--primary-pop);
+/* ロゴ画像のサイズ調整（ここが重要） */
+.logo-link {
+    display: block;
     transition: 0.3s;
+    height: 50px; /* リンクエリアの高さ */
+    display: flex;
+    align-items: center;
 }
-.logo:hover { transform: scale(1.05); }
+.logo-link:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+.logo-img {
+    height: 100%;      /* 親要素(.logo-link)の高さに合わせる */
+    max-height: 50px;  /* 最大でも50pxまで */
+    width: auto;       /* 横幅は自動調整 */
+    object-fit: contain; /* アスペクト比を維持 */
+    display: block;
+}
 
 nav ul { display: flex; gap: 15px; }
 nav a {
-    /* ナビゲーションメニューの文字を太く */
     font-weight: 700; 
     color: var(--primary-color);
     font-size: 1rem;
@@ -143,7 +146,7 @@ main { padding: 40px 0 80px; }
     margin: 0 auto;
 }
 
-/* --- トップエリア（比率 1.5 : 1） --- */
+/* --- トップエリア --- */
 .top-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr; 
@@ -185,13 +188,25 @@ main { padding: 40px 0 80px; }
     border: 1px solid rgba(255,255,255,0.6);
 }
 
+.hero-tag {
+    display: inline-block;
+    background: var(--accent-pink);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 0 #db2777;
+    align-self: center;
+}
+
 .hero h1 {
     font-size: 2.2rem;
     line-height: 1.4;
     margin-bottom: 25px;
     color: var(--primary-color);
     text-shadow: 2px 2px 0 #dbeafe;
-    /* 見出しをさらに太く */
     font-weight: 900; 
 }
 .hero-desc {
@@ -201,7 +216,6 @@ main { padding: 40px 0 80px; }
     border: 2px dashed #bae6fd;
     margin-bottom: 35px;
     color: var(--text-main);
-    /* 説明文も太く */
     font-weight: 700; 
 }
 
@@ -211,7 +225,6 @@ main { padding: 40px 0 80px; }
     background: var(--accent-yellow);
     color: #854d0e;
     font-size: 1.3rem;
-    /* ボタン文字を極太に */
     font-weight: 900; 
     padding: 18px 60px;
     border-radius: 100px;
@@ -256,7 +269,6 @@ main { padding: 40px 0 80px; }
 .news-title-pin span {
     background: var(--accent-orange);
     color: white;
-    /* フォント指定を日本語フォントに変更し、太字に */
     font-family: var(--font-base); 
     font-weight: 900;
     padding: 5px 30px;
@@ -292,14 +304,12 @@ main { padding: 40px 0 80px; }
     display: inline-block;
     background: #e0f2fe;
     color: var(--primary-color);
-    /* 日付を太く */
     font-weight: 900; 
     font-size: 0.85rem;
     padding: 4px 10px;
     border-radius: 6px;
     margin-bottom: 8px;
 }
-/* ニュース本文を少し太く */
 .news-text { display: block; line-height: 1.6; font-weight: 700; } 
 .news-link { color: var(--primary-color); text-decoration: underline; cursor: pointer; }
 
@@ -319,10 +329,9 @@ main { padding: 40px 0 80px; }
     margin-bottom: 40px;
 }
 .section-title-en {
-    /* 英語フォント指定を削除し、日本語フォントで極太に */
     font-family: var(--font-base);
     font-weight: 900;
-    font-size: 2.5rem; /* サイズ調整 */
+    font-size: 2.5rem;
     color: #fff;
     text-shadow: 4px 4px 0 rgba(0,0,0,0.1);
     letter-spacing: 0.05em;
@@ -334,7 +343,6 @@ main { padding: 40px 0 80px; }
     display: inline-block;
     padding: 6px 20px;
     border-radius: 20px;
-    /* 日本語サブタイトルを太く */
     font-weight: 900; 
     font-size: 0.95rem;
     position: relative;
@@ -403,7 +411,6 @@ main { padding: 40px 0 80px; }
     display: inline-block;
     padding: 4px 15px;
     font-size: 0.9rem;
-    /* ラベル文字を太く */
     font-weight: 900; 
     margin-bottom: 15px;
     position: relative;
@@ -422,13 +429,11 @@ main { padding: 40px 0 80px; }
     border: 2px solid var(--primary-color);
 }
 .feature-item h3 {
-    /* 見出しを太く */
     font-weight: 900; 
     color: var(--primary-color);
     margin-bottom: 10px;
 }
 .feature-item p {
-    /* 説明文を少し太く */
     font-weight: 500;
 }
 
@@ -444,7 +449,6 @@ main { padding: 40px 0 80px; }
     color: #fff;
     padding: 6px 15px;
     border-radius: 20px;
-    /* バッジ文字を太く */
     font-weight: 900; 
     display: inline-block;
     margin-bottom: 20px;
@@ -461,7 +465,6 @@ main { padding: 40px 0 80px; }
     padding: 12px;
     border-radius: 10px 0 0 10px;
     width: 30%;
-    /* 表ヘッダーを太く */
     font-weight: 900; 
 }
 .specs-table td {
@@ -471,18 +474,18 @@ main { padding: 40px 0 80px; }
     border: 2px solid #f1f5f9;
     border-left: none;
     text-align: left;
-    /* 表の中身を太く */
     font-weight: 700; 
     color: var(--text-main);
 }
 
-/* --- フッター（リッチ版） --- */
+/* --- フッター（ロゴサイズ調整版） --- */
 footer {
+    text-align: center;
+    color: #fff;
     background-color: #ffffff;
-    /* 上部にポップな点線の区切り */
     border-top: 5px dotted var(--primary-pop);
     padding: 60px 0 20px;
-    margin-top: auto; /* コンテンツが短くても最下部に配置 */
+    margin-top: auto;
     color: var(--text-main);
 }
 
@@ -491,24 +494,25 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    /* 左(ロゴ):中(リンク):右(リンク) = 2:1:1 */
     grid-template-columns: 2fr 1fr 1fr;
     gap: 40px;
     margin-bottom: 40px;
 }
 
-/* ブランドエリア（左側） */
-.footer-brand {
-    text-align: left;
-}
-.footer-brand .logo {
-    /* ヘッダーのロゴを流用しつつ調整 */
+.footer-brand { text-align: left; }
+
+/* フッターのロゴを大きくするための上書き設定 */
+.footer-brand .logo-link {
+    height: auto; /* ヘッダーの50px制限を解除 */
     display: inline-block;
     margin-bottom: 20px;
-    font-size: 1.3rem;
-    box-shadow: none; /* 影なしでフラットに */
-    border: 2px solid var(--primary-color);
 }
+.footer-brand .logo-img {
+    max-height: 120px; /* 最大サイズを大きく設定 */
+    height: 100px;     /* 基本の高さを100pxに */
+    width: auto;
+}
+
 .footer-desc {
     font-size: 0.9rem;
     line-height: 1.8;
@@ -516,67 +520,45 @@ footer {
     font-weight: 500;
 }
 
-/* リンク集エリア */
-.footer-links {
-    text-align: left;
-}
+.footer-links { text-align: left; }
 .footer-links h3 {
     font-weight: 900;
     margin-bottom: 20px;
     color: var(--primary-color);
     font-size: 1.1rem;
-    /* 下線マーカー風 */
     border-bottom: 3px solid var(--accent-yellow);
     display: inline-block;
     padding-bottom: 5px;
 }
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-.footer-links li {
-    margin-bottom: 12px;
-}
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 12px; }
 .footer-links a {
     color: var(--text-main);
     font-weight: 700;
     transition: 0.2s;
     font-size: 0.95rem;
     display: inline-block;
-    border: none; /* ナビの枠線を消す */
+    border: none;
     background: none;
     padding: 0;
 }
 .footer-links a:hover {
     color: var(--primary-color);
-    transform: translateX(5px); /* 右にちょこっと動く */
+    transform: translateX(5px);
     background: none;
     box-shadow: none;
 }
 
-/* コピーライト */
 .footer-bottom {
     text-align: center;
     border-top: 2px dashed #e2e8f0;
     padding-top: 30px;
     color: #94a3b8;
     font-size: 0.85rem;
-    font-weight: 700;
+    font-weight: 700; 
 }
 
 /* スマホ対応 */
-@media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr; /* 1列にする */
-        text-align: center;
-        gap: 40px;
-    }
-    .footer-brand, .footer-links {
-        text-align: center; /* スマホでは中央揃え */
-    }
-}
-
-/* --- スマホ・タブレット --- */
 @media (max-width: 1024px) {
     .top-grid {
         grid-template-columns: 1fr;
@@ -586,9 +568,106 @@ footer {
         height: auto;
         min-height: auto;
     }
-    .news-card {
-        order: 2;
-    }
+    .news-card { order: 2; }
     .specs-table th, .specs-table td { display: block; width: 100%; border-radius: 10px; border: none; }
     .specs-table th { margin-bottom: 5px; }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    .footer-brand, .footer-links {
+        text-align: center;
+    }
+    .logo-link {
+        justify-content: center; 
+    }
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand { text-align: left; }
+.footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.footer-links { text-align: left; }
+.footer-links h3 {
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    border-bottom: 3px solid var(--accent-yellow);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+    color: var(--text-main);
+    font-weight: 700;
+    transition: 0.2s;
+    font-size: 0.95rem;
+    display: inline-block;
+    border: none;
+    background: none;
+    padding: 0;
+}
+.footer-links a:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+    background: none;
+    box-shadow: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 2px dashed #e2e8f0;
+    padding-top: 30px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 700; 
+}
+
+/* スマホ対応 */
+@media (max-width: 1024px) {
+    .top-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .hero-card, .news-card {
+        height: auto;
+        min-height: auto;
+    }
+    .news-card { order: 2; }
+    .specs-table th, .specs-table td { display: block; width: 100%; border-radius: 10px; border: none; }
+    .specs-table th { margin-bottom: 5px; }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    .footer-brand, .footer-links {
+        text-align: center;
+    }
+    .logo-link {
+        justify-content: center; /* モバイルでロゴを中央に */
+    }
 }
