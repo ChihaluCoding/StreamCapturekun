@@ -1,4 +1,4 @@
-# 配信録画くん
+![logo](logo.png)
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg) ![Platform](https://img.shields.io/badge/platform-Windows-0078D6.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg)
 

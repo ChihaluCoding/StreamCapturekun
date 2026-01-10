@@ -102,14 +102,9 @@ header {
 /* ロゴ画像のサイズ調整（ここが重要） */
 .logo-link {
     display: block;
-    transition: 0.3s;
     height: 50px; /* リンクエリアの高さ */
     display: flex;
     align-items: center;
-}
-.logo-link:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
 }
 .logo-img {
     height: 100%;      /* 親要素(.logo-link)の高さに合わせる */
